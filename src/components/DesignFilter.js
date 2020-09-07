@@ -64,17 +64,17 @@ export default function DesignFilter({designs}) {
                 </div>
                 {/* end guests*/}
 
-                {/* start room price */}
+                {/* start design price */}
                     <div className="form-group">
-                        <label htmlFor="price">Room price Ksh: {price}
+                        <label htmlFor="price">Design price Ksh: {price}
                         </label>
                         <input type ="range" name ="price" min = {minPrice} max = {maxPrice} id="price" value ={price} onChange={handleChange} className="form-control" />
                     </div>
-                {/* end room price */}
+                {/* end design price */}
 
                 {/* size */}
                 <div className="form-group">
-                   <label htmlFor="size">Room size</label>
+                   <label htmlFor="size">Design size</label>
                    <div className="size-inputs">
                     <input type="number" name ="minSize" id="size" value={minSize} onChange={handleChange} className="size-input"/>
                     <input type="number" name ="maxSize" id="size" value={maxSize} onChange={handleChange} className="size-input"/>

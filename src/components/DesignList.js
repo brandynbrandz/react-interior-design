@@ -12,11 +12,11 @@ export default function DesignList({designs}) {
     }
     
     return (
-        <section className="roomslist">
-        <div className="roomslist-center">
+        <section className="designslist">
+        <div className="designslist-center">
             {
                 designs.map(item=>{
-                    return <Design key={item.id} room={item}/>
+                    return <Design key={item.id} design={item}/>
                 })
             }
         </div>

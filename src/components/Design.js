@@ -4,10 +4,10 @@ import defaultImg from '../images/room-1.jpeg'; //default random image renderrin
 import PropTypes from 'prop-types';
 
 
-export default function Design({room}) {
-    const{name,slug,images,price} = room;
+export default function Design({design}) {
+    const{name,slug,images,price} = design;
     return (
-        <article className="room">
+        <article className="design">
         <div className="img-container">
         <img src={images[0] || defaultImg} alt="single design"/>
         <div className="price-top">
@@ -15,18 +15,18 @@ export default function Design({room}) {
             <p>per similar design</p>
         </div>
         <Link to={`/designs/${slug}`}
-            className="btn-primary room-link">
+            className="btn-primary design-link">
                 Features
         </Link>
         
         </div>
-        <p className="room-info">{name}</p>
+        <p className="design-info">{name}</p>
         </article>
     );
 }
 
 Design.propTypes = {
-   room:PropTypes.shape({
+   design:PropTypes.shape({
        name:PropTypes.string.isRequired,
        slug:PropTypes.string.isRequired,
        images:PropTypes.arrayOf(PropTypes.string).isRequired,

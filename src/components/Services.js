@@ -25,7 +25,7 @@ export default class Services extends Component {
             },
             {
                 icon:<GiArmorUpgrade />,
-                title:"RoomLift",
+                title:"DesignLift",
                 info:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, cupiditate!'
             }
         ]

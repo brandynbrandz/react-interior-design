@@ -8,14 +8,14 @@ export default class FeaturedDesigns extends Component {
     static contextType = DesignContext;
     render() {
         let {loading, featuredDesigns : designs} = this.context;
-        designs = designs.map(room => {
-            return <Design key={room.id} room={room}/>
+        designs = designs.map(design => {
+            return <Design key={design.id} design={design}/>
         })
 
         return (
-            <section className="featured-rooms">
-                <Title title="featured rooms"/>
-                <div className="featured-rooms-center">
+            <section className="featured-designs">
+                <Title title="featured designs"/>
+                <div className="featured-designs-center">
                 {loading?<Loading/>:designs}
                 </div>
             </section>

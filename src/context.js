@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import Client from './Contentful';
 
 // get entries for contentful
-Client.getEntries({
-    content_type: "interiorDesign"
-})
-.then((response) => console.log(response.items))
+// Client.getEntries({
+//     content_type: "interiorDesign"
+// })
+// .then((response) => console.log(response.items))
 
 const DesignContext = React.createContext();
 // <DesignContext.Provider value={"hello"}
@@ -41,7 +41,7 @@ class DesignProvider extends Component {
                 // order:"-fields.price"
             });
         let designs =this.formatData(response.items);
-        let featuredDesigns = designs.filter(room => room.featured===true);
+        let featuredDesigns = designs.filter(design => design.featured===true);
         let maxPrice = Math.max(...designs.map(item => item.price));
         let maxSize = Math.max(...designs.map(item =>item.size));
 
@@ -72,15 +72,15 @@ class DesignProvider extends Component {
             let id = item.sys.id;
             let images = item.fields.images.map(image =>image.fields.file.url);
 
-            let room ={...item.fields,images,id};
-            return room;
+            let design ={...item.fields,images,id};
+            return design;
         });
         return tempItems;
     }
     getDesign = slug => {
         let tempDesigns = [...this.state.designs];
-        const room = tempDesigns.find(room=>room.slug ===slug);
-        return room;
+        const design = tempDesigns.find(design=>design.slug ===slug);
+        return design;
 
     };
 
@@ -110,30 +110,30 @@ class DesignProvider extends Component {
         price = parseInt(price);
 
 
-        //for room type 
+        //for design type 
         // filter by type
         if(type !== 'all'){
-            tempDesigns = tempDesigns.filter(room => room.type ===type)
+            tempDesigns = tempDesigns.filter(design => design.type ===type)
         };
 
         // filter by capacity
         if(capacity !==1){
-            tempDesigns = tempDesigns.filter(room => room.capacity >=capacity)
+            tempDesigns = tempDesigns.filter(design => design.capacity >=capacity)
         };
         // filter by price 
-        tempDesigns = tempDesigns.filter(room => room.price <=price);
+        tempDesigns = tempDesigns.filter(design => design.price <=price);
 
         // filter by size
-        tempDesigns = tempDesigns.filter(room => room.size >=minSize && room.size <= maxSize)
+        tempDesigns = tempDesigns.filter(design => design.size >=minSize && design.size <= maxSize)
 
         // filter by breakfast
         if(breakfast){
-            tempDesigns = tempDesigns.filter(room => room.breakfast === true)
+            tempDesigns = tempDesigns.filter(design => design.breakfast === true)
         };
 
         // filter by pets
         if(pets){
-            tempDesigns = tempDesigns.filter(room => room.pets === true)
+            tempDesigns = tempDesigns.filter(design => design.pets === true)
         };
 
 

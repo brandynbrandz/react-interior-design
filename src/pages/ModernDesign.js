@@ -18,8 +18,8 @@ export default class ModernDesign extends Component {
     // componentDidMount(){}    //can be used instead of props
     render() {
         const {getDesign} = this.context;
-        const room = getDesign(this.state.slug);
-        if(!room){
+        const design = getDesign(this.state.slug);
+        if(!design){
             return (<div className="error">
               <h3>no such Design could be found...</h3>  
               <Link to='/designs' className="btn-primary">back to Designs</Link>
@@ -34,7 +34,7 @@ export default class ModernDesign extends Component {
             extras,
             breakfast,
             pets,
-            images} = room;
+            images} = design;
         const [mainImg,...defaultImg] =images;
         return (
             <div>
@@ -45,13 +45,13 @@ export default class ModernDesign extends Component {
             </Link>
             </Banner>
             </StyledHero>
-                <section className="single-room">
-                    <div className="single-room-images">
+                <section className="single-design">
+                    <div className="single-design-images">
                     {defaultImg.map((item,index)=>{
                       return  <img key={index} src={item} alt={name}/>
                     })}
                     </div>
-                    <div className="single-room-info">
+                    <div className="single-design-info">
                         <article className="desc">
                             <h3>details</h3>
                             <p>{description}</p>
@@ -68,7 +68,7 @@ export default class ModernDesign extends Component {
                         </article>
                     </div>
                 </section>
-                <section className="room-extras">
+                <section className="design-extras">
                     <h6>extras</h6>
                     <ul className="extras">
                         {extras.map((item,index)=>{

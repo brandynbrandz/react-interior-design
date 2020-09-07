@@ -19,10 +19,11 @@ export default class Navbar extends Component {
                             <img src={logo} alt="Interior Design" className="nav-img"/>
                         </NavLink>
                         <button type="button" className="nav-btn" onClick={this.handleToggle}>
-                            <FaAlignRight className="nav-icon"/>
+                            <FaAlignRight className="nav-icon"/>    
                         </button>
+                        
                     </div>
-                    <ul className={this.state.isOpen?"nav-links show-nav":"nav-links"}>
+                    <ul className={this.state.isOpen?"nav-links show-nav":"nav-links"}  onClick={this.handleToggle}>
                     <li>
                      <NavLink to="/" activeClassName="active">Home</NavLink>
                     </li>
@@ -33,6 +34,7 @@ export default class Navbar extends Component {
                     <NavLink to="/contact" activeClassName="active">Contact</NavLink>
                     </li>
                     </ul>
+                   
                 </div>
             </nav>
         )
