@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from '../images/logo.svg';
+import logo from '../images/brandz.svg';
 import { FaAlignRight } from 'react-icons/fa';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export default class Navbar extends Component {
     state={
@@ -15,19 +15,22 @@ export default class Navbar extends Component {
             <nav className="navbar">
                 <div className="nav-center">
                     <div className="nav-header">
-                        <Link to="/">
-                            <img src={logo} alt="Interior Design"/>
-                        </Link>
+                        <NavLink to="/#">
+                            <img src={logo} alt="Interior Design" className="nav-img"/>
+                        </NavLink>
                         <button type="button" className="nav-btn" onClick={this.handleToggle}>
                             <FaAlignRight className="nav-icon"/>
                         </button>
                     </div>
                     <ul className={this.state.isOpen?"nav-links show-nav":"nav-links"}>
                     <li>
-                     <Link to="/">Home</Link>
+                     <NavLink to="/" activeClassName="active">Home</NavLink>
                     </li>
                     <li>
-                     <Link to="/designs">Designs</Link>
+                     <NavLink to="/designs" activeClassName="active">Designs</NavLink>
+                    </li>
+                    <li>
+                    <NavLink to="/contact" activeClassName="active">Contact</NavLink>
                     </li>
                     </ul>
                 </div>

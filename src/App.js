@@ -9,6 +9,7 @@ import Error from './pages/Error';
 import {Route, Switch} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import Contact from './pages/Contact';
 
 
 function App() {
@@ -20,7 +21,9 @@ function App() {
       
       <Route exact path="/designs/"  component ={Designs}/>
       
-      <Route exact path="/designs/:dis" component ={ModernDesign}/>
+      <Route exact path="/designs/:slug" component ={ModernDesign}/>
+
+      <Route exact path="/contact" component ={Contact}/>
       
       <Route component={Error}/>
     </Switch>

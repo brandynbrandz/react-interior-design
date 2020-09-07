@@ -1,43 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
 /* start */
 
 * {
@@ -59,7 +19,7 @@
 }
 /* globals */
 body {
-  padding-top: 66px;
+  padding-top: 62px;
   color: var(--mainBlack);
   background: var(--mainWhite);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -173,9 +133,15 @@ h6 {
 .nav-links a:hover {
   color: var(--primaryColor);
 }
-
+.nav-links li>.active {
+  color:var(--primaryColor);
+}
 .show-nav {
-  height: 100px;
+  height: 160px;
+}
+.nav-img {
+  transition: var(--mainTransition);
+  width: 200px;
 }
 @media screen and (min-width: 768px) {
   .nav-btn {
@@ -195,7 +161,14 @@ h6 {
     margin: 0 1rem;
     padding: 0.5rem 0;
   }
+  .nav-img {
+    transition: var(--mainTransition);
+
+    width: 300px;
+  }
 }
+
+
 /* end of navbar */
 /* Hero */
 .defaultHero,
@@ -242,6 +215,7 @@ h6 {
   .banner h1 {
     font-size: 3rem;
   }
+
 }
 @media screen and (min-width: 992px) {
   .banner {
@@ -295,6 +269,7 @@ h6 {
 }
 .services h6 {
   letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
 }
 .services p {
   width: 80%;
