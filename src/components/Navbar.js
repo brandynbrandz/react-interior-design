@@ -1,20 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import logo from '../images/brandz.svg';
 import { FaAlignRight } from 'react-icons/fa';
 import {NavLink} from 'react-router-dom';
+import OutsideClickHandler from 'react-outside-click-handler';
+
+
 
 export default class Navbar extends Component {
     state={
-        isOpen:false
+        isOpen:false,
+        
     }
+
+    
     handleToggle = () => {
         this.setState({isOpen:!this.state.isOpen})
     }
+
+
+
+
+
     render() {
         return (
-            <nav className="navbar">
-                <div className="nav-center">
-                    <div className="nav-header">
+
+            <nav className="navbar" >
+                <div className="nav-center" ref={node => { this.node = node; }}>
+                    <div className="nav-header" >
                         <NavLink to="/#">
                             <img src={logo} alt="Interior Design" className="nav-img"/>
                         </NavLink>
@@ -37,6 +49,7 @@ export default class Navbar extends Component {
                    
                 </div>
             </nav>
+
         )
     }
 }
